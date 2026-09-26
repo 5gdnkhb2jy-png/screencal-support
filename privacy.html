@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隐私政策 · 显示器校色</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='20' width='84' height='60' rx='6' fill='%231d1d1f'/%3E%3Crect x='14' y='26' width='72' height='44' rx='3' fill='%23f5f5f7'/%3E%3Crect x='20' y='32' width='20' height='32' fill='%23c7c7cc'/%3E%3Crect x='44' y='32' width='20' height='32' fill='%237d7d85'/%3E%3Crect x='68' y='32' width='14' height='32' fill='%233fa7ff'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1d1d1f; --sub:#6e6e73; --line:#e8e8ed;
+    --accent:#0071e3; --accent-bg:#f5f7fa; --code:#f5f5f7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:var(--fg); background:var(--bg); line-height:1.8; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px}
+  header{
+    position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid var(--line);z-index:10;
+  }
+  nav{display:flex;align-items:center;gap:8px;height:52px}
+  nav .mark{width:22px;height:22px;border-radius:5px;background:#1d1d1f;display:inline-flex;align-items:center;justify-content:center}
+  nav .mark span{display:block;width:10px;height:10px;background:linear-gradient(90deg,#c7c7cc 0 33%,#7d7d85 33% 66%,#3fa7ff 66% 100%)}
+  nav .name{font-size:15px;font-weight:600}
+  nav .link{margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none}
+  nav .link:hover{text-decoration:underline}
+  .hero{padding:64px 0 40px;text-align:center}
+  .hero h1{font-size:36px;font-weight:700;letter-spacing:-.02em}
+  .hero p{color:var(--sub);font-size:15px;margin-top:10px}
+  main{padding-bottom:24px}
+  .summary{background:var(--accent-bg);border:1px solid #dde9fb;border-radius:16px;padding:24px 28px;margin:28px 0 40px}
+  .summary strong{color:var(--accent);font-size:16px;display:block;margin-bottom:6px}
+  .summary p{font-size:15px}
+  h2{font-size:20px;font-weight:700;margin:36px 0 10px;padding-top:12px}
+  p{font-size:15px;color:var(--fg)}
+  .sub{color:var(--sub);font-size:14.5px;margin-top:6px}
+  .note{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:16px 20px;font-size:14px;color:var(--sub);margin-top:10px}
+  ul{margin:10px 0 0 20px;font-size:15px}
+  li{margin-bottom:6px}
+  footer{padding:40px 0 48px;color:#86868b;font-size:13px;text-align:center;border-top:1px solid var(--line);margin-top:48px}
+  footer a{color:var(--sub);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  @media (max-width:640px){.hero h1{font-size:30px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <span class="mark"><span></span></span>
+      <span class="name">显示器校色</span>
+      <a class="link" href="index.html">帮助与支持</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>隐私政策</h1>
+  <p>生效日期：2026 年 9 月 25 日</p>
+</div>
+
+<main class="wrap">
+  <div class="summary">
+    <strong>一句话版本</strong>
+    <p>「显示器校色」（Mac 端）及其配套 iPhone 应用<strong>不收集任何个人数据</strong>：不需要注册登录，不上传任何画面或测量数据，不包含广告和统计 SDK。</p>
+  </div>
+
+  <h2>1. 我们收集什么</h2>
+  <p>我们不收集任何个人信息。使用本软件无需注册、无需登录、无需提供姓名、邮箱、电话号码或位置信息；我们不读取设备标识符、通讯录、照片库或任何用户文件。</p>
+
+  <h2>2. 相机画面的使用</h2>
+  <p>iPhone 应用使用前置摄像头测量屏幕显示的颜色。相机画面<strong>仅在你设备的本地实时处理</strong>，用于计算灰阶数据，随后立即丢弃——不保存、不上传、不与任何第三方共享。</p>
+  <p class="sub">我们无法看到、也无法访问你的相机画面：它从头到尾只存在于你的 iPhone 内存中。</p>
+
+  <h2>3. 本地存储</h2>
+  <p>应用会在你设备本地保存两项内容：</p>
+  <ul>
+    <li><strong>屏幕亮度偏好</strong>（iPhone）：用于校准结束时将屏幕亮度渐变恢复到你原来的设置。</li>
+    <li><strong>校准记录与色彩描述文件（ICC）</strong>（Mac）：保存在你的 Mac 本地（<code>~/Library/Application Support/DisplayCalibrator/</code>），仅用于校准管理与一键还原。</li>
+  </ul>
+  <p>以上数据均不出现在网络传输中。</p>
+
+  <h2>4. 灰阶测量与校准</h2>
+  <p>校准过程中，iPhone 测量到的灰阶数据会通过局域网<strong>传输到你自己的 Mac</strong>（iPhone 与 Mac 之间）参与计算，用于生成系统色彩描述文件；该传输仅在你自家的 Wi-Fi 网络内进行，<strong>不经过互联网、不上传到任何服务器</strong>。校准完成后，原始测量数据即被丢弃。</p>
+
+  <h2>5. 无追踪、无广告</h2>
+  <p>本软件不包含任何广告、不集成任何统计分析或行为追踪 SDK、不使用 IDFA 或任何跨应用追踪技术。没有第三方网络请求。</p>
+
+  <h2>6. 第三方服务</h2>
+  <p>本软件不依赖任何第三方服务。Mac 与 iPhone 之间的通信仅在你的局域网内进行，用于传输校准指令与测量结果，<strong>不经过互联网</strong>。</p>
+
+  <h2>7. 数据安全</h2>
+  <p>由于我们不收集、不存储、不传输任何个人数据，不存在可泄露的数据集。这是我们设计的基本原则：<strong>隐私优先，默认不收集</strong>。</p>
+
+  <h2>8. 儿童隐私</h2>
+  <p>本软件面向一般用户，不针对儿童设计，也不收集任何年龄相关信息。</p>
+
+  <h2>9. 政策更新</h2>
+  <p>如本政策发生变更，我们将在本页面公布更新后的版本并注明生效日期。重大变更会通过应用内提示告知。</p>
+
+  <h2>10. 联系我们</h2>
+  <p>如对本隐私政策有任何疑问，请联系：<a href="mailto:support@xiying.app" style="color:var(--accent)">support@xiying.app</a></p>
+  <div class="note">本隐私政策同样适用于 App Store 上架的 iPhone 应用「CalibrationMeter」。</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html">帮助与支持</a> · © 2026 显示器校色 · 保留所有权利
+  </div>
+</footer>
+
+</body>
+</html>
