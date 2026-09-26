@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>隐私政策 · 显示器校色</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='20' width='84' height='60' rx='6' fill='%231d1d1f'/%3E%3Crect x='14' y='26' width='72' height='44' rx='3' fill='%23f5f5f7'/%3E%3Crect x='20' y='32' width='20' height='32' fill='%23c7c7cc'/%3E%3Crect x='44' y='32' width='20' height='32' fill='%237d7d85'/%3E%3Crect x='68' y='32' width='14' height='32' fill='%233fa7ff'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%233a3a3c'/%3E%3Cstop offset='1' stop-color='%231d1d1f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='5' y='5' width='90' height='90' rx='22' fill='url(%23g)'/%3E%3Crect x='10.5' y='13' width='79' height='74' rx='15' fill='none' stroke='white' stroke-opacity='0.3' stroke-width='2.5'/%3E%3Crect x='24' y='28' width='11' height='44' rx='3' fill='%233a3a3c' stroke='%235c5c60' stroke-width='1'/%3E%3Crect x='40' y='28' width='11' height='44' rx='3' fill='%238e8e93'/%3E%3Crect x='56' y='28' width='11' height='44' rx='3' fill='%23d1d1d6'/%3E%3Crect x='72' y='28' width='4.5' height='44' rx='2' fill='%230a84ff'/%3E%3C/svg%3E">
 <style>
   :root{
     --bg:#ffffff; --fg:#1d1d1f; --sub:#6e6e73; --line:#e8e8ed;
@@ -12,59 +12,108 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",Helvetica,Arial,sans-serif;
-    color:var(--fg); background:var(--bg); line-height:1.8; -webkit-font-smoothing:antialiased;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","PingFang SC","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:var(--fg); background:var(--bg); line-height:1.75; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
-  .wrap{max-width:720px;margin:0 auto;padding:0 24px}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  /* ========== 顶部导航（毛玻璃，与帮助页一致） ========== */
   header{
-    position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);
-    border-bottom:1px solid var(--line);z-index:10;
+    position:sticky;top:0;z-index:20;
+    background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);
+    border-bottom:1px solid var(--line);
   }
-  nav{display:flex;align-items:center;gap:8px;height:52px}
-  nav .mark{width:22px;height:22px;border-radius:5px;background:#1d1d1f;display:inline-flex;align-items:center;justify-content:center}
-  nav .mark span{display:block;width:10px;height:10px;background:linear-gradient(90deg,#c7c7cc 0 33%,#7d7d85 33% 66%,#3fa7ff 66% 100%)}
-  nav .name{font-size:15px;font-weight:600}
-  nav .link{margin-left:auto;font-size:14px;color:var(--accent);text-decoration:none}
-  nav .link:hover{text-decoration:underline}
-  .hero{padding:64px 0 40px;text-align:center}
-  .hero h1{font-size:36px;font-weight:700;letter-spacing:-.02em}
-  .hero p{color:var(--sub);font-size:15px;margin-top:10px}
-  main{padding-bottom:24px}
-  .summary{background:var(--accent-bg);border:1px solid #dde9fb;border-radius:16px;padding:24px 28px;margin:28px 0 40px}
-  .summary strong{color:var(--accent);font-size:16px;display:block;margin-bottom:6px}
-  .summary p{font-size:15px}
-  h2{font-size:20px;font-weight:700;margin:36px 0 10px;padding-top:12px}
-  p{font-size:15px;color:var(--fg)}
-  .sub{color:var(--sub);font-size:14.5px;margin-top:6px}
-  .note{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:16px 20px;font-size:14px;color:var(--sub);margin-top:10px}
-  ul{margin:10px 0 0 20px;font-size:15px}
-  li{margin-bottom:6px}
-  footer{padding:40px 0 48px;color:#86868b;font-size:13px;text-align:center;border-top:1px solid var(--line);margin-top:48px}
-  footer a{color:var(--sub);text-decoration:none}
-  footer a:hover{text-decoration:underline}
-  @media (max-width:640px){.hero h1{font-size:30px}}
+  .nav{max-width:980px;margin:0 auto;padding:0 22px;display:flex;align-items:center;gap:10px;height:56px}
+  .brand{display:flex;align-items:center;gap:9px;text-decoration:none!important}
+  .brand .logo{width:26px;height:26px;flex:none;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.14))}
+  .brand .bname{font-size:15px;font-weight:600;color:var(--fg);letter-spacing:-.01em}
+  .brand .bsub{font-size:12px;color:var(--sub);font-weight:400;letter-spacing:.02em}
+  .nav-links{margin-left:auto;display:flex;align-items:center;gap:24px}
+  .nav-links a{font-size:14px;color:var(--fg);opacity:.8;transition:opacity .18s}
+  .nav-links a:hover{opacity:1;text-decoration:none}
+  /* ========== Hero ========== */
+  .hero{text-align:center;padding:64px 22px 44px}
+  .hero .appicon{width:72px;height:72px;border-radius:20%;display:inline-block;margin-bottom:22px;
+    box-shadow:0 10px 26px rgba(0,0,0,.14),0 2px 5px rgba(0,0,0,.07)}
+  .hero h1{font-size:clamp(30px,4vw,42px);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+  .hero p{color:var(--sub);font-size:14px;margin-top:12px}
+  /* ========== 正文 ========== */
+  main{max-width:720px;margin:0 auto;padding:0 24px 24px}
+  .summary{background:var(--accent-bg);border:1px solid #e4ebf5;border-radius:20px;padding:26px 30px;margin:32px 0 8px}
+  .summary .st{color:var(--accent);font-size:15px;font-weight:600;display:block;margin-bottom:8px}
+  .summary p{font-size:15px;line-height:1.7}
+  h2{font-size:clamp(19px,2.4vw,21px);font-weight:700;margin:44px 0 10px;letter-spacing:-.01em}
+  h2:first-of-type{border-top:1px solid var(--line);padding-top:36px;margin-top:36px}
+  p{font-size:15px;line-height:1.75}
+  .sub{color:var(--sub);font-size:14px;margin-top:8px}
+  .note{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:16px 20px;font-size:13.5px;color:var(--sub);margin-top:12px;line-height:1.6}
+  ul{margin:12px 0 0 20px;font-size:15px}
+  li{margin-bottom:8px;line-height:1.65}
+  code{background:var(--code);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:13px;font-family:"SF Mono",Menlo,monospace}
+  /* ========== Footer ========== */
+  footer{border-top:1px solid var(--line);padding:40px 24px 56px;text-align:center;color:#86868b;font-size:13px;margin-top:56px}
+  footer a{color:var(--sub);margin:0 8px}
+  footer .sep{opacity:.5;margin:0 2px}
+  /* ========== 响应式 ========== */
+  @media (max-width:1023px){
+    .hero{padding:52px 22px 36px}
+    .sec{padding:52px 24px 60px}
+  }
+  @media (max-width:767px){
+    .nav{padding:0 16px;height:52px}
+    .brand .bsub{display:none}
+    .nav-links{gap:16px}
+    .hero{padding:42px 18px 32px}
+    .hero .appicon{width:60px;height:60px;margin-bottom:18px}
+    main{padding:0 18px 20px}
+    .summary{padding:22px 20px;border-radius:16px}
+    h2{margin:36px 0 8px}
+    h2:first-of-type{padding-top:28px;margin-top:28px}
+    .note{padding:14px 16px}
+    footer{padding:32px 18px 44px}
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
-    <nav>
-      <span class="mark"><span></span></span>
-      <span class="name">显示器校色</span>
-      <a class="link" href="index.html">帮助与支持</a>
-    </nav>
-  </div>
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3c"/><stop offset="1" stop-color="#1d1d1f"/></linearGradient></defs>
+        <rect x="5" y="5" width="90" height="90" rx="22" fill="url(#lg)"/>
+        <rect x="10.5" y="13" width="79" height="74" rx="15" fill="none" stroke="white" stroke-opacity="0.3" stroke-width="2.5"/>
+        <rect x="24" y="28" width="11" height="44" rx="3" fill="#3a3a3c" stroke="#5c5c60" stroke-width="1"/>
+        <rect x="40" y="28" width="11" height="44" rx="3" fill="#8e8e93"/>
+        <rect x="56" y="28" width="11" height="44" rx="3" fill="#d1d1d6"/>
+        <rect x="72" y="28" width="4.5" height="44" rx="2" fill="#0a84ff"/>
+      </svg>
+      <span class="bname">显示器校色</span>
+      <span class="bsub">ScreenCal</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">帮助与支持</a>
+    </div>
+  </nav>
 </header>
 
-<div class="hero wrap">
+<div class="hero">
+  <svg class="appicon" viewBox="0 0 100 100" aria-hidden="true">
+    <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3c"/><stop offset="1" stop-color="#1d1d1f"/></linearGradient></defs>
+    <rect x="5" y="5" width="90" height="90" rx="22" fill="url(#ag)"/>
+    <rect x="10.5" y="13" width="79" height="74" rx="15" fill="none" stroke="white" stroke-opacity="0.3" stroke-width="2.5"/>
+    <rect x="24" y="28" width="11" height="44" rx="3" fill="#3a3a3c" stroke="#5c5c60" stroke-width="1"/>
+    <rect x="40" y="28" width="11" height="44" rx="3" fill="#8e8e93"/>
+    <rect x="56" y="28" width="11" height="44" rx="3" fill="#d1d1d6"/>
+    <rect x="72" y="28" width="4.5" height="44" rx="2" fill="#0a84ff"/>
+  </svg>
   <h1>隐私政策</h1>
   <p>生效日期：2026 年 9 月 25 日</p>
 </div>
 
-<main class="wrap">
+<main>
   <div class="summary">
-    <strong>一句话版本</strong>
+    <span class="st">一句话版本</span>
     <p>「显示器校色」（Mac 端）及其配套 iPhone 应用<strong>不收集任何个人数据</strong>：不需要注册登录，不上传任何画面或测量数据，不包含广告和统计 SDK。</p>
   </div>
 
@@ -102,14 +151,12 @@
   <p>如本政策发生变更，我们将在本页面公布更新后的版本并注明生效日期。重大变更会通过应用内提示告知。</p>
 
   <h2>10. 联系我们</h2>
-  <p>如对本隐私政策有任何疑问，请联系：<a href="mailto:support@xiying.app" style="color:var(--accent)">support@xiying.app</a></p>
-  <div class="note">本隐私政策同样适用于 App Store 上架的 iPhone 应用「CalibrationMeter」。</div>
+  <p>如对本隐私政策有任何疑问，请联系：<a href="mailto:support@xiying.app">support@xiying.app</a></p>
+  <div class="note">本隐私政策同样适用于 App Store 上架的 iPhone 应用「屏幕校色」（CalibrationMeter）。</div>
 </main>
 
 <footer>
-  <div class="wrap">
-    <a href="index.html">帮助与支持</a> · © 2026 显示器校色 · 保留所有权利
-  </div>
+  <a href="index.html">帮助与支持</a><span class="sep">·</span><span>© 2026 显示器校色 · 保留所有权利</span>
 </footer>
 
 </body>
