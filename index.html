@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>帮助与支持 · 显示器校色</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%233a3a3c'/%3E%3Cstop offset='1' stop-color='%231d1d1f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='5' y='5' width='90' height='90' rx='22' fill='url(%23g)'/%3E%3Crect x='10.5' y='13' width='79' height='74' rx='15' fill='none' stroke='white' stroke-opacity='0.3' stroke-width='2.5'/%3E%3Crect x='24' y='28' width='11' height='44' rx='3' fill='%233a3a3c' stroke='%235c5c60' stroke-width='1'/%3E%3Crect x='40' y='28' width='11' height='44' rx='3' fill='%238e8e93'/%3E%3Crect x='56' y='28' width='11' height='44' rx='3' fill='%23d1d1d6'/%3E%3Crect x='72' y='28' width='4.5' height='44' rx='2' fill='%230a84ff'/%3E%3C/svg%3E">
+<link rel="icon" href="assets/app-icon.png">
 <style>
   :root{
     --bg:#ffffff; --fg:#1d1d1f; --sub:#6e6e73; --line:#e8e8ed;
@@ -26,7 +26,7 @@
   }
   .nav{max-width:980px;margin:0 auto;padding:0 22px;display:flex;align-items:center;gap:10px;height:56px}
   .brand{display:flex;align-items:center;gap:9px;text-decoration:none!important}
-  .brand .logo{width:26px;height:26px;flex:none;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.14))}
+  .brand .logo{width:26px;height:26px;flex:none;display:block;border-radius:6px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.14));object-fit:contain}
   .brand .bname{font-size:15px;font-weight:600;color:var(--fg);letter-spacing:-.01em}
   .brand .bsub{font-size:12px;color:var(--sub);font-weight:400;letter-spacing:.02em}
   .nav-links{margin-left:auto;display:flex;align-items:center;gap:24px}
@@ -35,7 +35,7 @@
   /* ========== Hero ========== */
   .hero{text-align:center;padding:76px 22px 60px}
   .hero .appicon{width:96px;height:96px;border-radius:22%;display:inline-block;margin-bottom:26px;
-    box-shadow:0 12px 32px rgba(0,0,0,.16),0 2px 6px rgba(0,0,0,.08)}
+    box-shadow:0 12px 32px rgba(0,0,0,.16),0 2px 6px rgba(0,0,0,.08);object-fit:contain}
   .hero h1{font-size:clamp(34px,5vw,52px);font-weight:700;letter-spacing:-.025em;line-height:1.12}
   .hero .lead{font-size:clamp(16px,2vw,19px);color:var(--sub);max-width:600px;margin:16px auto 0;line-height:1.6}
   .hero .cta{margin-top:30px;display:inline-block;background:var(--accent);color:#fff;font-size:16px;font-weight:500;
@@ -103,15 +103,7 @@
 <header>
   <nav class="nav">
     <a class="brand" href="index.html">
-      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true">
-        <defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3c"/><stop offset="1" stop-color="#1d1d1f"/></linearGradient></defs>
-        <rect x="5" y="5" width="90" height="90" rx="22" fill="url(#lg)"/>
-        <rect x="10.5" y="13" width="79" height="74" rx="15" fill="none" stroke="white" stroke-opacity="0.3" stroke-width="2.5"/>
-        <rect x="24" y="28" width="11" height="44" rx="3" fill="#3a3a3c" stroke="#5c5c60" stroke-width="1"/>
-        <rect x="40" y="28" width="11" height="44" rx="3" fill="#8e8e93"/>
-        <rect x="56" y="28" width="11" height="44" rx="3" fill="#d1d1d6"/>
-        <rect x="72" y="28" width="4.5" height="44" rx="2" fill="#0a84ff"/>
-      </svg>
+      <img class="logo" src="assets/app-icon.png" alt="显示器校色">
       <span class="bname">显示器校色</span>
       <span class="bsub">ScreenCal</span>
     </a>
@@ -123,15 +115,7 @@
 </header>
 
 <div class="hero">
-  <svg class="appicon" viewBox="0 0 100 100" aria-hidden="true">
-    <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3c"/><stop offset="1" stop-color="#1d1d1f"/></linearGradient></defs>
-    <rect x="5" y="5" width="90" height="90" rx="22" fill="url(#ag)"/>
-    <rect x="10.5" y="13" width="79" height="74" rx="15" fill="none" stroke="white" stroke-opacity="0.3" stroke-width="2.5"/>
-    <rect x="24" y="28" width="11" height="44" rx="3" fill="#3a3a3c" stroke="#5c5c60" stroke-width="1"/>
-    <rect x="40" y="28" width="11" height="44" rx="3" fill="#8e8e93"/>
-    <rect x="56" y="28" width="11" height="44" rx="3" fill="#d1d1d6"/>
-    <rect x="72" y="28" width="4.5" height="44" rx="2" fill="#0a84ff"/>
-  </svg>
+  <img class="appicon" src="assets/app-icon.png" alt="显示器校色">
   <h1>帮助与支持</h1>
   <p class="lead">用 iPhone 放在屏幕前，自动测量并校准 Mac 显示器灰阶与色彩，生成系统色彩描述文件，让屏幕显示更准。</p>
   <a class="cta" href="#how">了解使用步骤</a>
