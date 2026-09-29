@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,9 +28,17 @@
   .brand .logo{width:26px;height:26px;flex:none;display:block;border-radius:6px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.14));object-fit:contain}
   .brand .bname{font-size:15px;font-weight:600;color:var(--fg);letter-spacing:-.01em}
   .brand .bsub{font-size:12px;color:var(--sub);font-weight:400;letter-spacing:.02em}
-  .nav-links{margin-left:auto;display:flex;align-items:center;gap:24px}
+  .nav-links{margin-left:auto;display:flex;align-items:center;gap:20px}
   .nav-links a{font-size:14px;color:var(--fg);opacity:.8;transition:opacity .18s}
   .nav-links a:hover{opacity:1;text-decoration:none}
+  /* 语言切换（苹果风格文字按钮） */
+  .lang{display:flex;align-items:center;gap:2px;margin-left:6px}
+  .lang button{
+    border:0;background:none;cursor:pointer;font:inherit;font-size:13px;color:var(--sub);
+    padding:4px 8px;border-radius:980px;transition:color .15s,background .15s;-webkit-appearance:none;appearance:none;
+  }
+  .lang button:hover{color:var(--fg)}
+  .lang button.active{color:#fff;background:var(--accent);font-weight:500}
   /* ========== Hero ========== */
   .hero{text-align:center;padding:64px 22px 44px}
   .hero .appicon{width:72px;height:72px;border-radius:20%;display:inline-block;margin-bottom:22px;
@@ -62,7 +70,7 @@
   @media (max-width:767px){
     .nav{padding:0 16px;height:52px}
     .brand .bsub{display:none}
-    .nav-links{gap:16px}
+    .nav-links{gap:12px}
     .hero{padding:42px 18px 32px}
     .hero .appicon{width:60px;height:60px;margin-bottom:18px}
     main{padding:0 18px 20px}
@@ -84,64 +92,214 @@
       <span class="bsub">ScreenCal</span>
     </a>
     <div class="nav-links">
-      <a href="index.html">帮助与支持</a>
+      <a href="index.html" data-i18n="nav_help">帮助与支持</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="zh-Hans">简体</button>
+        <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="zh-Hant">繁體</button>
+      </div>
     </div>
   </nav>
 </header>
 
 <div class="hero">
   <img class="appicon" src="assets/app-icon.png" alt="显示器校色">
-  <h1>隐私政策</h1>
-  <p>生效日期：2026 年 9 月 25 日</p>
+  <h1 data-i18n="hero_title">隐私政策</h1>
+  <p data-i18n="hero_date">生效日期：2026 年 9 月 25 日</p>
 </div>
 
 <main>
   <div class="summary">
-    <span class="st">一句话版本</span>
-    <p>「显示器校色」（Mac 端）及其配套 iPhone 应用<strong>不收集任何个人数据</strong>：不需要注册登录，不上传任何画面或测量数据，不包含广告和统计 SDK。</p>
+    <span class="st" data-i18n="sum_title">一句话版本</span>
+    <p data-i18n="sum_body">「显示器校色」（Mac 端）及其配套 iPhone 应用<strong>不收集任何个人数据</strong>：不需要注册登录，不上传任何画面或测量数据，不包含广告和统计 SDK。</p>
   </div>
 
-  <h2>1. 我们收集什么</h2>
-  <p>我们不收集任何个人信息。使用本软件无需注册、无需登录、无需提供姓名、邮箱、电话号码或位置信息；我们不读取设备标识符、通讯录、照片库或任何用户文件。</p>
+  <h2 data-i18n="h1">1. 我们收集什么</h2>
+  <p data-i18n="p1">我们不收集任何个人信息。使用本软件无需注册、无需登录、无需提供姓名、邮箱、电话号码或位置信息；我们不读取设备标识符、通讯录、照片库或任何用户文件。</p>
 
-  <h2>2. 相机画面的使用</h2>
-  <p>iPhone 应用使用前置摄像头测量屏幕显示的颜色。相机画面<strong>仅在你设备的本地实时处理</strong>，用于计算灰阶数据，随后立即丢弃——不保存、不上传、不与任何第三方共享。</p>
-  <p class="sub">我们无法看到、也无法访问你的相机画面：它从头到尾只存在于你的 iPhone 内存中。</p>
+  <h2 data-i18n="h2">2. 相机画面的使用</h2>
+  <p data-i18n="p2">iPhone 应用使用前置摄像头测量屏幕显示的颜色。相机画面<strong>仅在你设备的本地实时处理</strong>，用于计算灰阶数据，随后立即丢弃——不保存、不上传、不与任何第三方共享。</p>
+  <p class="sub" data-i18n="p2s">我们无法看到、也无法访问你的相机画面：它从头到尾只存在于你的 iPhone 内存中。</p>
 
-  <h2>3. 本地存储</h2>
-  <p>应用会在你设备本地保存两项内容：</p>
+  <h2 data-i18n="h3">3. 本地存储</h2>
+  <p data-i18n="p3">应用会在你设备本地保存两项内容：</p>
   <ul>
-    <li><strong>屏幕亮度偏好</strong>（iPhone）：用于校准结束时将屏幕亮度渐变恢复到你原来的设置。</li>
-    <li><strong>校准记录与色彩描述文件（ICC）</strong>（Mac）：保存在你的 Mac 本地（<code>~/Library/Application Support/DisplayCalibrator/</code>），仅用于校准管理与一键还原。</li>
+    <li data-i18n="li1"><strong>屏幕亮度偏好</strong>（iPhone）：用于校准结束时将屏幕亮度渐变恢复到你原来的设置。</li>
+    <li data-i18n="li2"><strong>校准记录与色彩描述文件（ICC）</strong>（Mac）：保存在你的 Mac 本地（<code>~/Library/Application Support/DisplayCalibrator/</code>），仅用于校准管理与一键还原。</li>
   </ul>
-  <p>以上数据均不出现在网络传输中。</p>
+  <p data-i18n="p3b">以上数据均不出现在网络传输中。</p>
 
-  <h2>4. 灰阶测量与校准</h2>
-  <p>校准过程中，iPhone 测量到的灰阶数据会通过局域网<strong>传输到你自己的 Mac</strong>（iPhone 与 Mac 之间）参与计算，用于生成系统色彩描述文件；该传输仅在你自家的 Wi-Fi 网络内进行，<strong>不经过互联网、不上传到任何服务器</strong>。校准完成后，原始测量数据即被丢弃。</p>
+  <h2 data-i18n="h4">4. 灰阶测量与校准</h2>
+  <p data-i18n="p4">校准过程中，iPhone 测量到的灰阶数据会通过局域网<strong>传输到你自己的 Mac</strong>（iPhone 与 Mac 之间）参与计算，用于生成系统色彩描述文件；该传输仅在你自家的 Wi-Fi 网络内进行，<strong>不经过互联网、不上传到任何服务器</strong>。校准完成后，原始测量数据即被丢弃。</p>
 
-  <h2>5. 无追踪、无广告</h2>
-  <p>本软件不包含任何广告、不集成任何统计分析或行为追踪 SDK、不使用 IDFA 或任何跨应用追踪技术。没有第三方网络请求。</p>
+  <h2 data-i18n="h5">5. 无追踪、无广告</h2>
+  <p data-i18n="p5">本软件不包含任何广告、不集成任何统计分析或行为追踪 SDK、不使用 IDFA 或任何跨应用追踪技术。没有第三方网络请求。</p>
 
-  <h2>6. 第三方服务</h2>
-  <p>本软件不依赖任何第三方服务。Mac 与 iPhone 之间的通信仅在你的局域网内进行，用于传输校准指令与测量结果，<strong>不经过互联网</strong>。</p>
+  <h2 data-i18n="h6">6. 第三方服务</h2>
+  <p data-i18n="p6">本软件不依赖任何第三方服务。Mac 与 iPhone 之间的通信仅在你的局域网内进行，用于传输校准指令与测量结果，<strong>不经过互联网</strong>。</p>
 
-  <h2>7. 数据安全</h2>
-  <p>由于我们不收集、不存储、不传输任何个人数据，不存在可泄露的数据集。这是我们设计的基本原则：<strong>隐私优先，默认不收集</strong>。</p>
+  <h2 data-i18n="h7">7. 数据安全</h2>
+  <p data-i18n="p7">由于我们不收集、不存储、不传输任何个人数据，不存在可泄露的数据集。这是我们设计的基本原则：<strong>隐私优先，默认不收集</strong>。</p>
 
-  <h2>8. 儿童隐私</h2>
-  <p>本软件面向一般用户，不针对儿童设计，也不收集任何年龄相关信息。</p>
+  <h2 data-i18n="h8">8. 儿童隐私</h2>
+  <p data-i18n="p8">本软件面向一般用户，不针对儿童设计，也不收集任何年龄相关信息。</p>
 
-  <h2>9. 政策更新</h2>
-  <p>如本政策发生变更，我们将在本页面公布更新后的版本并注明生效日期。重大变更会通过应用内提示告知。</p>
+  <h2 data-i18n="h9">9. 政策更新</h2>
+  <p data-i18n="p9">如本政策发生变更，我们将在本页面公布更新后的版本并注明生效日期。重大变更会通过应用内提示告知。</p>
 
-  <h2>10. 联系我们</h2>
-  <p>如对本隐私政策有任何疑问，请联系：<a href="mailto:hello2060@foxmail.com?subject=%E6%98%BE%E7%A4%BA%E5%99%A8%E6%A0%A1%E8%89%B2%EF%BC%88ScreenCal%EF%BC%89%E7%94%A8%E6%88%B7%E5%8F%8D%E9%A6%88">hello2060@foxmail.com</a></p>
-  <div class="note">本隐私政策同样适用于 App Store 上架的 iPhone 应用「屏幕校色」（CalibrationMeter）。</div>
+  <h2 data-i18n="h10">10. 联系我们</h2>
+  <p data-i18n="p10">如对本隐私政策有任何疑问，请联系：<a href="mailto:hello2060@foxmail.com?subject=%E6%98%BE%E7%A4%BA%E5%99%A8%E6%A0%A1%E8%89%B2%EF%BC%88ScreenCal%EF%BC%89%E7%94%A8%E6%88%B7%E5%8F%8D%E9%A6%88">hello2060@foxmail.com</a></p>
+  <div class="note" data-i18n="p11">本隐私政策同样适用于 App Store 上架的 iPhone 应用「屏幕校色」（CalibrationMeter）。</div>
 </main>
 
 <footer>
-  <a href="index.html">帮助与支持</a><span class="sep">·</span><span>© 2026 显示器校色 · 保留所有权利</span>
+  <a href="index.html" data-i18n="nav_help">帮助与支持</a><span class="sep">·</span><span data-i18n="ft_copyright">© 2026 显示器校色 · 保留所有权利</span>
 </footer>
+
+<script>
+(function () {
+  var I18N = {
+    "zh-Hans": {
+      nav_help: "帮助与支持",
+      hero_title: "隐私政策", hero_date: "生效日期：2026 年 9 月 25 日",
+      sum_title: "一句话版本",
+      sum_body: "「显示器校色」（Mac 端）及其配套 iPhone 应用<strong>不收集任何个人数据</strong>：不需要注册登录，不上传任何画面或测量数据，不包含广告和统计 SDK。",
+      h1: "1. 我们收集什么",
+      p1: "我们不收集任何个人信息。使用本软件无需注册、无需登录、无需提供姓名、邮箱、电话号码或位置信息；我们不读取设备标识符、通讯录、照片库或任何用户文件。",
+      h2: "2. 相机画面的使用",
+      p2: "iPhone 应用使用前置摄像头测量屏幕显示的颜色。相机画面<strong>仅在你设备的本地实时处理</strong>，用于计算灰阶数据，随后立即丢弃——不保存、不上传、不与任何第三方共享。",
+      p2s: "我们无法看到、也无法访问你的相机画面：它从头到尾只存在于你的 iPhone 内存中。",
+      h3: "3. 本地存储",
+      p3: "应用会在你设备本地保存两项内容：",
+      li1: "<strong>屏幕亮度偏好</strong>（iPhone）：用于校准结束时将屏幕亮度渐变恢复到你原来的设置。",
+      li2: "<strong>校准记录与色彩描述文件（ICC）</strong>（Mac）：保存在你的 Mac 本地（<code>~/Library/Application Support/DisplayCalibrator/</code>），仅用于校准管理与一键还原。",
+      p3b: "以上数据均不出现在网络传输中。",
+      h4: "4. 灰阶测量与校准",
+      p4: "校准过程中，iPhone 测量到的灰阶数据会通过局域网<strong>传输到你自己的 Mac</strong>（iPhone 与 Mac 之间）参与计算，用于生成系统色彩描述文件；该传输仅在你自家的 Wi-Fi 网络内进行，<strong>不经过互联网、不上传到任何服务器</strong>。校准完成后，原始测量数据即被丢弃。",
+      h5: "5. 无追踪、无广告",
+      p5: "本软件不包含任何广告、不集成任何统计分析或行为追踪 SDK、不使用 IDFA 或任何跨应用追踪技术。没有第三方网络请求。",
+      h6: "6. 第三方服务",
+      p6: "本软件不依赖任何第三方服务。Mac 与 iPhone 之间的通信仅在你的局域网内进行，用于传输校准指令与测量结果，<strong>不经过互联网</strong>。",
+      h7: "7. 数据安全",
+      p7: "由于我们不收集、不存储、不传输任何个人数据，不存在可泄露的数据集。这是我们设计的基本原则：<strong>隐私优先，默认不收集</strong>。",
+      h8: "8. 儿童隐私",
+      p8: "本软件面向一般用户，不针对儿童设计，也不收集任何年龄相关信息。",
+      h9: "9. 政策更新",
+      p9: "如本政策发生变更，我们将在本页面公布更新后的版本并注明生效日期。重大变更会通过应用内提示告知。",
+      h10: "10. 联系我们",
+      p10: "如对本隐私政策有任何疑问，请联系：",
+      p11: "本隐私政策同样适用于 App Store 上架的 iPhone 应用「屏幕校色」（CalibrationMeter）。",
+      ft_copyright: "© 2026 显示器校色 · 保留所有权利",
+      docTitle: "隐私政策 · 显示器校色"
+    },
+    "en": {
+      nav_help: "Help & Support",
+      hero_title: "Privacy Policy", hero_date: "Effective date: September 25, 2026",
+      sum_title: "TL;DR",
+      sum_body: "DisplayCalibrator (Mac) and its companion iPhone app <strong>collect no personal data</strong>: no sign-up or login, no upload of any footage or measurement data, and no advertising or analytics SDKs.",
+      h1: "1. What We Collect",
+      p1: "We collect no personal information. Using the app requires no registration or login, and no name, email, phone number, or location. We do not read device identifiers, contacts, photo libraries, or any user files.",
+      h2: "2. Camera Footage",
+      p2: "The iPhone app uses the front camera to measure the color shown on screen. Camera footage is processed <strong>locally in real time on your device only</strong>, used to compute gray-level data, then discarded immediately — never saved, uploaded, or shared with any third party.",
+      p2s: "We cannot see or access your camera footage: it exists only in your iPhone's memory from start to finish.",
+      h3: "3. Local Storage",
+      p3: "The app stores two things locally on your device:",
+      li1: "<strong>Screen brightness preference</strong> (iPhone): used to gradually restore brightness to your original setting when calibration ends.",
+      li2: "<strong>Calibration records and color profiles (ICC)</strong> (Mac): stored locally on your Mac (<code>~/Library/Application Support/DisplayCalibrator/</code>), used only for calibration management and one-tap restore.",
+      p3b: "None of the above is transmitted over the network.",
+      h4: "4. Gray-Level Measurement & Calibration",
+      p4: "During calibration, gray-level data measured by the iPhone is sent <strong>over your local network to your own Mac</strong> for computation, generating the system color profile. This transfer stays within your home Wi-Fi — it <strong>never goes over the internet or to any server</strong>. Raw measurement data is discarded when calibration finishes.",
+      h5: "5. No Tracking, No Ads",
+      p5: "The app contains no ads, integrates no analytics or behavioral-tracking SDKs, and uses no IDFA or cross-app tracking. There are no third-party network requests.",
+      h6: "6. Third-Party Services",
+      p6: "The app depends on no third-party services. Communication between Mac and iPhone happens only on your local network, carrying calibration commands and measurement results — <strong>never over the internet</strong>.",
+      h7: "7. Data Security",
+      p7: "Since we collect, store, and transmit no personal data, there is no dataset that could leak. This is our core design principle: <strong>privacy first, no collection by default</strong>.",
+      h8: "8. Children's Privacy",
+      p8: "The app is intended for general audiences, is not designed for children, and collects no age-related information.",
+      h9: "9. Policy Updates",
+      p9: "If this policy changes, we will post the updated version on this page with its effective date. Material changes will be announced with an in-app notice.",
+      h10: "10. Contact Us",
+      p10: "If you have any questions about this privacy policy, contact:",
+      p11: "This privacy policy also applies to CalibrationMeter, the iPhone app available on the App Store.",
+      ft_copyright: "© 2026 ScreenCal · All rights reserved",
+      docTitle: "Privacy Policy · ScreenCal"
+    },
+    "zh-Hant": {
+      nav_help: "幫助與支援",
+      hero_title: "隱私政策", hero_date: "生效日期：2026 年 9 月 25 日",
+      sum_title: "一句話版本",
+      sum_body: "「顯示器校色」（Mac 端）及其配套 iPhone App<strong>不收集任何個人資料</strong>：不需要註冊登入，不上傳任何畫面或測量資料，不包含廣告和統計 SDK。",
+      h1: "1. 我們收集什麼",
+      p1: "我們不收集任何個人資訊。使用本軟體無需註冊、無需登入、無需提供姓名、郵箱、電話號碼或位置資訊；我們不讀取裝置識別碼、通訊錄、照片圖庫或任何使用者檔案。",
+      h2: "2. 相機畫面的使用",
+      p2: "iPhone App 使用前置鏡頭測量螢幕顯示的顏色。相機畫面<strong>僅在你裝置的本機即時處理</strong>，用於計算灰階資料，隨後立即丟棄——不儲存、不上傳、不與任何第三方分享。",
+      p2s: "我們無法看到、也無法存取你的相機畫面：它從頭到尾只存在於你的 iPhone 記憶體中。",
+      h3: "3. 本機儲存",
+      p3: "App 會在你裝置本機儲存兩項內容：",
+      li1: "<strong>螢幕亮度偏好</strong>（iPhone）：用於校色結束時將螢幕亮度漸變恢復到你原本的設定。",
+      li2: "<strong>校色紀錄與色彩描述檔（ICC）</strong>（Mac）：保存在你的 Mac 本機（<code>~/Library/Application Support/DisplayCalibrator/</code>），僅用於校色管理與一鍵還原。",
+      p3b: "以上資料均不出現在網路傳輸中。",
+      h4: "4. 灰階測量與校色",
+      p4: "校色過程中，iPhone 測量到的灰階資料會透過區域網路<strong>傳輸到你自己的 Mac</strong>（iPhone 與 Mac 之間）參與計算，用於產生系統色彩描述檔；該傳輸僅在你自家的 Wi-Fi 網路內進行，<strong>不經過網際網路、不上傳到任何伺服器</strong>。校色完成後，原始測量資料即被丟棄。",
+      h5: "5. 無追蹤、無廣告",
+      p5: "本軟體不包含任何廣告、不整合任何統計分析或行為追蹤 SDK、不使用 IDFA 或任何跨 App 追蹤技術。沒有第三方網路請求。",
+      h6: "6. 第三方服務",
+      p6: "本軟體不依賴任何第三方服務。Mac 與 iPhone 之間的通訊僅在你的區域網路內進行，用於傳輸校色指令與測量結果，<strong>不經過網際網路</strong>。",
+      h7: "7. 資料安全",
+      p7: "由於我們不收集、不儲存、不傳輸任何個人資料，不存在可外洩的資料集。這是我們設計的基本原則：<strong>隱私優先，預設不收集</strong>。",
+      h8: "8. 兒童隱私",
+      p8: "本軟體面向一般使用者，不針對兒童設計，也不收集任何年齡相關資訊。",
+      h9: "9. 政策更新",
+      p9: "如本政策發生變更，我們將在本頁面公布更新後的版本並註明生效日期。重大變更會透過 App 內提示告知。",
+      h10: "10. 聯繫我們",
+      p10: "如對本隱私政策有任何疑問，請聯繫：",
+      p11: "本隱私政策同樣適用於 App Store 上架的 iPhone App「螢幕校色」（CalibrationMeter）。",
+      ft_copyright: "© 2026 顯示器校色 · 保留所有權利",
+      docTitle: "隱私政策 · 顯示器校色"
+    }
+  };
+
+  var TITLES = { "zh-Hans": "隐私政策 · 显示器校色", "en": "Privacy Policy · ScreenCal", "zh-Hant": "隱私政策 · 顯示器校色" };
+
+  function detectLang() {
+    var saved = null;
+    try { saved = localStorage.getItem("screencal.lang"); } catch (e) {}
+    if (saved && I18N[saved]) return saved;
+    var nav = (navigator.language || "zh-Hans").toLowerCase();
+    if (nav.indexOf("zh") === 0) {
+      if (nav.indexOf("hant") > -1 || nav.indexOf("tw") > -1 || nav.indexOf("hk") > -1 || nav.indexOf("mo") > -1) return "zh-Hant";
+      return "zh-Hans";
+    }
+    if (nav.indexOf("en") === 0) return "en";
+    return "zh-Hans";
+  }
+
+  function applyLang(lang) {
+    var dict = I18N[lang];
+    document.documentElement.lang = lang === "zh-Hant" ? "zh-Hant" : lang === "en" ? "en" : "zh-Hans";
+    document.title = TITLES[lang];
+    var els = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < els.length; i++) {
+      var key = els[i].getAttribute("data-i18n");
+      if (dict[key] !== undefined) els[i].innerHTML = dict[key];
+    }
+    var btns = document.querySelectorAll(".lang button");
+    for (var b = 0; b < btns.length; b++) {
+      btns[b].classList.toggle("active", btns[b].getAttribute("data-lang") === lang);
+    }
+    try { localStorage.setItem("screencal.lang", lang); } catch (e) {}
+  }
+
+  var langBtns = document.querySelectorAll(".lang button");
+  for (var x = 0; x < langBtns.length; x++) {
+    langBtns[x].addEventListener("click", function () {
+      applyLang(this.getAttribute("data-lang"));
+    });
+  }
+  applyLang(detectLang());
+})();
+</script>
 
 </body>
 </html>

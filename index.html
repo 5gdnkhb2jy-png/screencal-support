@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,9 +29,17 @@
   .brand .logo{width:26px;height:26px;flex:none;display:block;border-radius:6px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.14));object-fit:contain}
   .brand .bname{font-size:15px;font-weight:600;color:var(--fg);letter-spacing:-.01em}
   .brand .bsub{font-size:12px;color:var(--sub);font-weight:400;letter-spacing:.02em}
-  .nav-links{margin-left:auto;display:flex;align-items:center;gap:24px}
+  .nav-links{margin-left:auto;display:flex;align-items:center;gap:20px}
   .nav-links a{font-size:14px;color:var(--fg);opacity:.8;transition:opacity .18s}
   .nav-links a:hover{opacity:1;text-decoration:none}
+  /* 语言切换（苹果风格文字按钮） */
+  .lang{display:flex;align-items:center;gap:2px;margin-left:6px}
+  .lang button{
+    border:0;background:none;cursor:pointer;font:inherit;font-size:13px;color:var(--sub);
+    padding:4px 8px;border-radius:980px;transition:color .15s,background .15s;-webkit-appearance:none;appearance:none;
+  }
+  .lang button:hover{color:var(--fg)}
+  .lang button.active{color:#fff;background:var(--accent);font-weight:500}
   /* ========== Hero ========== */
   .hero{text-align:center;padding:76px 22px 60px}
   .hero .appicon{width:96px;height:96px;border-radius:22%;display:inline-block;margin-bottom:26px;
@@ -85,7 +93,7 @@
   @media (max-width:767px){
     .nav{padding:0 16px;height:52px}
     .brand .bsub{display:none}
-    .nav-links{gap:16px}
+    .nav-links{gap:12px}
     .hero{padding:48px 18px 40px}
     .hero .appicon{width:80px;height:80px;margin-bottom:20px}
     .hero .cta{display:block;max-width:320px;margin:26px auto 0}
@@ -108,59 +116,64 @@
       <span class="bsub">ScreenCal</span>
     </a>
     <div class="nav-links">
-      <a href="#faq">常见问题</a>
-      <a href="#contact">联系我们</a>
+      <a href="#faq" data-i18n="nav_faq">常见问题</a>
+      <a href="#contact" data-i18n="nav_contact">联系我们</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="zh-Hans">简体</button>
+        <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="zh-Hant">繁體</button>
+      </div>
     </div>
   </nav>
 </header>
 
 <div class="hero">
   <img class="appicon" src="assets/app-icon.png" alt="显示器校色">
-  <h1>帮助与支持</h1>
-  <p class="lead">用 iPhone 放在屏幕前，自动测量并校准 Mac 显示器灰阶与色彩，生成系统色彩描述文件，让屏幕显示更准。</p>
-  <a class="cta" href="#how">了解使用步骤</a>
+  <h1 data-i18n="hero_title">帮助与支持</h1>
+  <p class="lead" data-i18n="hero_lead">用 iPhone 放在屏幕前，自动测量并校准 Mac 显示器灰阶与色彩，生成系统色彩描述文件，让屏幕显示更准。</p>
+  <a class="cta" href="#how" data-i18n="hero_cta">了解使用步骤</a>
   <div class="platform">macOS 14+ · iPhone 11+ · iOS 17+</div>
 </div>
 
 <section id="how">
   <div class="sec">
     <p class="kicker">Getting Started</p>
-    <h2>使用步骤</h2>
-    <p class="lead">整个校准过程约 1 分钟，全程自动，无需任何设置。</p>
+    <h2 data-i18n="how_title">使用步骤</h2>
+    <p class="lead" data-i18n="how_lead">整个校准过程约 1 分钟，全程自动，无需任何设置。</p>
     <ul class="steps">
       <li class="step">
         <span class="num">1</span>
         <div>
-          <p class="t">在 Mac 上打开「显示器校色」</p>
-          <p class="d">点击「开始校准」。若系统开启了夜览模式，请按提示先关闭，否则测量结果会偏暖。</p>
+          <p class="t" data-i18n="s1t">在 Mac 上打开「显示器校色」</p>
+          <p class="d" data-i18n="s1d">点击「开始校准」。若系统开启了夜览模式，请按提示先关闭，否则测量结果会偏暖。</p>
         </div>
       </li>
       <li class="step">
         <span class="num">2</span>
         <div>
-          <p class="t">用 iPhone 对准屏幕</p>
-          <p class="d">在 iPhone 上打开配套应用「屏幕校色」，将手机正面（前置摄像头）贴近屏幕中央的框，保持不动。</p>
+          <p class="t" data-i18n="s2t">用 iPhone 对准屏幕</p>
+          <p class="d" data-i18n="s2d">在 iPhone 上打开配套应用「屏幕校色」，将手机正面（前置摄像头）贴近屏幕中央的框，保持不动。</p>
         </div>
       </li>
       <li class="step">
         <span class="num">3</span>
         <div>
-          <p class="t">等待自动测量</p>
-          <p class="d">屏幕会依次显示不同灰阶画面，手机自动测量颜色。期间保持手机稳定即可。</p>
+          <p class="t" data-i18n="s3t">等待自动测量</p>
+          <p class="d" data-i18n="s3d">屏幕会依次显示不同灰阶画面，手机自动测量颜色。期间保持手机稳定即可。</p>
         </div>
       </li>
       <li class="step">
         <span class="num">4</span>
         <div>
-          <p class="t">校准完成</p>
-          <p class="d">自动生成色彩描述文件（ICC）并应用，屏幕亮度会渐变恢复到你原来的设置。</p>
+          <p class="t" data-i18n="s4t">校准完成</p>
+          <p class="d" data-i18n="s4d">自动生成色彩描述文件（ICC）并应用，屏幕亮度会渐变恢复到你原来的设置。</p>
         </div>
       </li>
       <li class="step">
         <span class="num">5</span>
         <div>
-          <p class="t">随时可还原</p>
-          <p class="d">软件内一键「还原校准」，即可恢复校准前的系统色彩描述文件。</p>
+          <p class="t" data-i18n="s5t">随时可还原</p>
+          <p class="d" data-i18n="s5d">软件内一键「还原校准」，即可恢复校准前的系统色彩描述文件。</p>
         </div>
       </li>
     </ul>
@@ -170,44 +183,44 @@
 <section id="faq">
   <div class="sec">
     <p class="kicker">FAQ</p>
-    <h2>常见问题</h2>
-    <p class="lead">如果下面没有你要的答案，请联系我们。</p>
+    <h2 data-i18n="faq_title">常见问题</h2>
+    <p class="lead" data-i18n="faq_lead">如果下面没有你要的答案，请联系我们。</p>
     <div class="faq">
       <details>
-        <summary>Mac 和 iPhone 连不上怎么办？<span class="icon"></span></summary>
-        <p>请确认：① 两台设备连接的是同一个 Wi-Fi；② 两端 App 都已打开；③ Mac 首次使用会请求「本地网络」权限，请允许；④ 仍连不上时，重启两端 App 再试。</p>
+        <summary data-i18n-html="q1"><span data-i18n="q1">Mac 和 iPhone 连不上怎么办？</span><span class="icon"></span></summary>
+        <p data-i18n="a1">请确认：① 两台设备连接的是同一个 Wi-Fi；② 两端 App 都已打开；③ Mac 首次使用会请求「本地网络」权限，请允许；④ 仍连不上时，重启两端 App 再试。</p>
       </details>
       <details>
-        <summary>只装一个 App 能用吗？<span class="icon"></span></summary>
-        <p>不能。校色需要 Mac 端「显示器校色」生成并应用描述文件，iPhone 端「屏幕校色」负责贴近屏幕测量颜色，两个都要安装、并在同一网络下使用。可以从 Mac App Store / App Store 分别下载。</p>
+        <summary data-i18n-html="q2"><span data-i18n="q2">只装一个 App 能用吗？</span><span class="icon"></span></summary>
+        <p data-i18n="a2">不能。校色需要 Mac 端「显示器校色」生成并应用描述文件，iPhone 端「屏幕校色」负责贴近屏幕测量颜色，两个都要安装、并在同一网络下使用。可以从 Mac App Store / App Store 分别下载。</p>
       </details>
       <details>
-        <summary>校准准不准？<span class="icon"></span></summary>
-        <p>校准基于 iPhone 前置摄像头对屏幕灰阶的实测数据建模，生成色彩描述文件（ICC）。这与苹果系统自带的「显示器校准助理」是同一技术路线：测量真实输出、建立灰阶映射，只修正灰阶与色温偏差，不做任何画质增强。</p>
+        <summary data-i18n-html="q3"><span data-i18n="q3">校准准不准？</span><span class="icon"></span></summary>
+        <p data-i18n="a3">校准基于 iPhone 前置摄像头对屏幕灰阶的实测数据建模，生成色彩描述文件（ICC）。这与苹果系统自带的「显示器校准助理」是同一技术路线：测量真实输出、建立灰阶映射，只修正灰阶与色温偏差，不做任何画质增强。</p>
       </details>
       <details>
-        <summary>校准时为什么屏幕会变暗、变黑？<span class="icon"></span></summary>
-        <p>测量灰阶需要纯黑、纯灰等标准画面，屏幕短暂变暗是正常过程。校准结束后亮度会渐变恢复到你原来的设置。</p>
+        <summary data-i18n-html="q4"><span data-i18n="q4">校准时为什么屏幕会变暗、变黑？</span><span class="icon"></span></summary>
+        <p data-i18n="a4">测量灰阶需要纯黑、纯灰等标准画面，屏幕短暂变暗是正常过程。校准结束后亮度会渐变恢复到你原来的设置。</p>
       </details>
       <details>
-        <summary>开了夜览模式有影响吗？<span class="icon"></span></summary>
-        <p>有。夜览会整体偏暖，导致测量结果偏色。软件会检测到夜览并弹窗提示你先关闭；请关闭后再校准。</p>
+        <summary data-i18n-html="q5"><span data-i18n="q5">开了夜览模式有影响吗？</span><span class="icon"></span></summary>
+        <p data-i18n="a5">有。夜览会整体偏暖，导致测量结果偏色。软件会检测到夜览并弹窗提示你先关闭；请关闭后再校准。</p>
       </details>
       <details>
-        <summary>会修改我的照片或文件吗？<span class="icon"></span></summary>
-        <p>不会。本工具只生成屏幕的色彩描述文件（ICC），不读取、不修改任何照片、文档或系统文件。校准记录保存在你的 Mac 本地。</p>
+        <summary data-i18n-html="q6"><span data-i18n="q6">会修改我的照片或文件吗？</span><span class="icon"></span></summary>
+        <p data-i18n="a6">不会。本工具只生成屏幕的色彩描述文件（ICC），不读取、不修改任何照片、文档或系统文件。校准记录保存在你的 Mac 本地。</p>
       </details>
       <details>
-        <summary>怎么还原到校准前的状态？<span class="icon"></span></summary>
-        <p>打开「显示器校色」，点击「一键还原」即可。也可以在「系统设置 → 显示器 → 色彩描述文件」中选择你原来的描述文件。</p>
+        <summary data-i18n-html="q7"><span data-i18n="q7">怎么还原到校准前的状态？</span><span class="icon"></span></summary>
+        <p data-i18n="a7">打开「显示器校色」，点击「一键还原」即可。也可以在「系统设置 → 显示器 → 色彩描述文件」中选择你原来的描述文件。</p>
       </details>
       <details>
-        <summary>支持哪些系统？<span class="icon"></span></summary>
-        <p>Mac 端要求 macOS 14 或更高版本、Apple Silicon 芯片；iPhone 端要求 iPhone 11 或更新机型、iOS 17 或更高版本。Mac 与 iPhone 需在同一网络。</p>
+        <summary data-i18n-html="q8"><span data-i18n="q8">支持哪些系统？</span><span class="icon"></span></summary>
+        <p data-i18n="a8">Mac 端要求 macOS 14 或更高版本、Apple Silicon 芯片；iPhone 端要求 iPhone 11 或更新机型、iOS 17 或更高版本。Mac 与 iPhone 需在同一网络。</p>
       </details>
       <details>
-        <summary>校准会不会损坏显示器？<span class="icon"></span></summary>
-        <p>不会。软件只写入系统的色彩描述文件，不向显示器写入任何硬件数据，不对屏幕做任何物理操作。</p>
+        <summary data-i18n-html="q9"><span data-i18n="q9">校准会不会损坏显示器？</span><span class="icon"></span></summary>
+        <p data-i18n="a9">不会。软件只写入系统的色彩描述文件，不向显示器写入任何硬件数据，不对屏幕做任何物理操作。</p>
       </details>
     </div>
   </div>
@@ -216,17 +229,197 @@
 <section id="contact">
   <div class="sec">
     <div class="contact">
-      <h2>联系我们</h2>
-      <p>遇到问题或有建议？发邮件告诉我们，通常 1–2 个工作日内回复。</p>
-      <a class="btn" href="mailto:hello2060@foxmail.com?subject=%E6%98%BE%E7%A4%BA%E5%99%A8%E6%A0%A1%E8%89%B2%EF%BC%88ScreenCal%EF%BC%89%E7%94%A8%E6%88%B7%E5%8F%8D%E9%A6%88">发送邮件</a>
+      <h2 data-i18n="ct_title">联系我们</h2>
+      <p data-i18n="ct_lead">遇到问题或有建议？发邮件告诉我们，通常 1–2 个工作日内回复。</p>
+      <a class="btn" href="mailto:hello2060@foxmail.com?subject=%E6%98%BE%E7%A4%BA%E5%99%A8%E6%A0%A1%E8%89%B2%EF%BC%88ScreenCal%EF%BC%89%E7%94%A8%E6%88%B7%E5%8F%8D%E9%A6%88" data-i18n="ct_btn">发送邮件</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <a href="privacy.html">隐私政策</a><span class="sep">·</span><a href="https://developer.apple.com/tvos/" target="_blank" rel="noopener">相关技术</a>
-  <div>© 2026 显示器校色 · 保留所有权利</div>
+  <a href="privacy.html" data-i18n="ft_privacy">隐私政策</a><span class="sep">·</span><a href="https://developer.apple.com/tvos/" target="_blank" rel="noopener" data-i18n="ft_tech">相关技术</a>
+  <div data-i18n="ft_copyright">© 2026 显示器校色 · 保留所有权利</div>
 </footer>
+
+<script>
+(function () {
+  var I18N = {
+    "zh-Hans": {
+      nav_faq: "常见问题", nav_contact: "联系我们",
+      hero_title: "帮助与支持",
+      hero_lead: "用 iPhone 放在屏幕前，自动测量并校准 Mac 显示器灰阶与色彩，生成系统色彩描述文件，让屏幕显示更准。",
+      hero_cta: "了解使用步骤",
+      how_title: "使用步骤",
+      how_lead: "整个校准过程约 1 分钟，全程自动，无需任何设置。",
+      s1t: "在 Mac 上打开「显示器校色」",
+      s1d: "点击「开始校准」。若系统开启了夜览模式，请按提示先关闭，否则测量结果会偏暖。",
+      s2t: "用 iPhone 对准屏幕",
+      s2d: "在 iPhone 上打开配套应用「屏幕校色」，将手机正面（前置摄像头）贴近屏幕中央的框，保持不动。",
+      s3t: "等待自动测量",
+      s3d: "屏幕会依次显示不同灰阶画面，手机自动测量颜色。期间保持手机稳定即可。",
+      s4t: "校准完成",
+      s4d: "自动生成色彩描述文件（ICC）并应用，屏幕亮度会渐变恢复到你原来的设置。",
+      s5t: "随时可还原",
+      s5d: "软件内一键「还原校准」，即可恢复校准前的系统色彩描述文件。",
+      faq_title: "常见问题",
+      faq_lead: "如果下面没有你要的答案，请联系我们。",
+      q1: "Mac 和 iPhone 连不上怎么办？",
+      a1: "请确认：① 两台设备连接的是同一个 Wi-Fi；② 两端 App 都已打开；③ Mac 首次使用会请求「本地网络」权限，请允许；④ 仍连不上时，重启两端 App 再试。",
+      q2: "只装一个 App 能用吗？",
+      a2: "不能。校色需要 Mac 端「显示器校色」生成并应用描述文件，iPhone 端「屏幕校色」负责贴近屏幕测量颜色，两个都要安装、并在同一网络下使用。可以从 Mac App Store / App Store 分别下载。",
+      q3: "校准准不准？",
+      a3: "校准基于 iPhone 前置摄像头对屏幕灰阶的实测数据建模，生成色彩描述文件（ICC）。这与苹果系统自带的「显示器校准助理」是同一技术路线：测量真实输出、建立灰阶映射，只修正灰阶与色温偏差，不做任何画质增强。",
+      q4: "校准时为什么屏幕会变暗、变黑？",
+      a4: "测量灰阶需要纯黑、纯灰等标准画面，屏幕短暂变暗是正常过程。校准结束后亮度会渐变恢复到你原来的设置。",
+      q5: "开了夜览模式有影响吗？",
+      a5: "有。夜览会整体偏暖，导致测量结果偏色。软件会检测到夜览并弹窗提示你先关闭；请关闭后再校准。",
+      q6: "会修改我的照片或文件吗？",
+      a6: "不会。本工具只生成屏幕的色彩描述文件（ICC），不读取、不修改任何照片、文档或系统文件。校准记录保存在你的 Mac 本地。",
+      q7: "怎么还原到校准前的状态？",
+      a7: "打开「显示器校色」，点击「一键还原」即可。也可以在「系统设置 → 显示器 → 色彩描述文件」中选择你原来的描述文件。",
+      q8: "支持哪些系统？",
+      a8: "Mac 端要求 macOS 14 或更高版本、Apple Silicon 芯片；iPhone 端要求 iPhone 11 或更新机型、iOS 17 或更高版本。Mac 与 iPhone 需在同一网络。",
+      q9: "校准会不会损坏显示器？",
+      a9: "不会。软件只写入系统的色彩描述文件，不向显示器写入任何硬件数据，不对屏幕做任何物理操作。",
+      ct_title: "联系我们",
+      ct_lead: "遇到问题或有建议？发邮件告诉我们，通常 1–2 个工作日内回复。",
+      ct_btn: "发送邮件",
+      ft_privacy: "隐私政策", ft_tech: "相关技术", ft_copyright: "© 2026 显示器校色 · 保留所有权利",
+      langLabel: "Language", docTitle: "帮助与支持 · 显示器校色"
+    },
+    "en": {
+      nav_faq: "FAQ", nav_contact: "Contact Us",
+      hero_title: "Help & Support",
+      hero_lead: "Use your iPhone as a colorimeter to measure and calibrate your Mac display automatically — gray levels and color — and generate a system color profile for more accurate color.",
+      hero_cta: "See How It Works",
+      how_title: "How It Works",
+      how_lead: "The whole calibration takes about 1 minute, fully automatic, no setup needed.",
+      s1t: "Open DisplayCalibrator on your Mac",
+      s1d: "Click Start Calibration. If Night Shift is on, turn it off when prompted — otherwise measurements will be too warm.",
+      s2t: "Hold your iPhone to the screen",
+      s2d: "Open the companion app CalibrationMeter on your iPhone, place the front camera flat against the frame in the center of the screen, and hold still.",
+      s3t: "Wait for automatic measurement",
+      s3d: "The screen shows gray levels in sequence while the phone measures color automatically. Just keep the phone steady.",
+      s4t: "Calibration complete",
+      s4d: "An ICC color profile is generated and applied automatically. Screen brightness gradually returns to your original setting.",
+      s5t: "Revert anytime",
+      s5d: "One tap of Restore in the app brings back the system color profile you used before calibration.",
+      faq_title: "FAQ",
+      faq_lead: "Can't find your answer? Contact us.",
+      q1: "Can't connect Mac and iPhone?",
+      a1: "Check: ① both devices are on the same Wi-Fi; ② both apps are open; ③ when Mac asks for Local Network permission the first time, allow it; ④ if still not connecting, restart both apps.",
+      q2: "Do I need both apps?",
+      a2: "Yes. Calibration needs DisplayCalibrator on Mac to generate and apply the profile, and CalibrationMeter on iPhone to measure color against the screen. Install both and use them on the same network — download from the Mac App Store / App Store.",
+      q3: "How accurate is it?",
+      a3: "Calibration models real measurements of the screen's gray levels captured by the iPhone front camera, producing an ICC color profile. It follows the same approach as Apple's built-in Display Calibrator Assistant: measure actual output, build a gray-level mapping, and only correct gray-level and color-temperature deviation — no image enhancement.",
+      q4: "Why does the screen dim or go black?",
+      a4: "Measuring gray levels requires standard pure-black and gray patches, so brief dimming is normal. Brightness gradually returns to your original setting when done.",
+      q5: "Does Night Shift affect results?",
+      a5: "Yes. Night Shift shifts everything warmer and skews measurements. The app detects it and prompts you to turn it off — please do so before calibrating.",
+      q6: "Will it modify my photos or files?",
+      a6: "No. The app only generates a color profile (ICC) for your display. It never reads or modifies photos, documents, or system files. Calibration records stay local on your Mac.",
+      q7: "How do I revert to before calibration?",
+      a7: "Open DisplayCalibrator and tap Restore. You can also pick your original profile in System Settings → Displays → Color Profile.",
+      q8: "Which systems are supported?",
+      a8: "Mac: macOS 14 or later with Apple Silicon. iPhone: iPhone 11 or later with iOS 17 or later. Both devices must be on the same network.",
+      q9: "Can calibration damage my display?",
+      a9: "No. The app only writes a system color profile. It sends no hardware data to the display and performs no physical operations on the screen.",
+      ct_title: "Contact Us",
+      ct_lead: "Questions or feedback? Email us — we usually reply within 1–2 business days.",
+      ct_btn: "Send Email",
+      ft_privacy: "Privacy Policy", ft_tech: "Related", ft_copyright: "© 2026 ScreenCal · All rights reserved",
+      langLabel: "Language", docTitle: "Help & Support · ScreenCal"
+    },
+    "zh-Hant": {
+      nav_faq: "常見問題", nav_contact: "聯繫我們",
+      hero_title: "幫助與支援",
+      hero_lead: "用 iPhone 放在螢幕前，自動測量並校正 Mac 顯示器灰階與色彩，產生系統色彩描述檔，讓螢幕顯示更準。",
+      hero_cta: "了解使用步驟",
+      how_title: "使用步驟",
+      how_lead: "整個校色過程約 1 分鐘，全程自動，無需任何設定。",
+      s1t: "在 Mac 上開啟「顯示器校色」",
+      s1d: "點一下「開始校色」。若系統開啟了夜覽模式，請依提示先關閉，否則測量結果會偏暖。",
+      s2t: "用 iPhone 對準螢幕",
+      s2d: "在 iPhone 上開啟配套 App「螢幕校色」，將手機正面（前置鏡頭）貼近螢幕中央的框，保持不動。",
+      s3t: "等待自動測量",
+      s3d: "螢幕會依序顯示不同灰階畫面，手機自動測量顏色。期間保持手機穩定即可。",
+      s4t: "校色完成",
+      s4d: "自動產生色彩描述檔（ICC）並套用，螢幕亮度會漸變恢復到你原本的設定。",
+      s5t: "隨時可還原",
+      s5d: "軟體內一鍵「還原校色」，即可恢復校色前的系統色彩描述檔。",
+      faq_title: "常見問題",
+      faq_lead: "如果下面沒有你要的答案，請聯繫我們。",
+      q1: "Mac 和 iPhone 連不上怎麼辦？",
+      a1: "請確認：① 兩台裝置連線的是同一個 Wi-Fi；② 兩端 App 都已開啟；③ Mac 首次使用會要求「本地網路」權限，請允許；④ 仍連不上時，重新啟動兩端 App 再試。",
+      q2: "只裝一個 App 能用嗎？",
+      a2: "不能。校色需要 Mac 端「顯示器校色」產生並套用描述檔，iPhone 端「螢幕校色」負責貼近螢幕測量顏色，兩者都要安裝、並在同一網路下使用。可從 Mac App Store / App Store 分別下載。",
+      q3: "校色準不準？",
+      a3: "校色基於 iPhone 前置鏡頭對螢幕灰階的實測數據建模，產生色彩描述檔（ICC）。這與蘋果系統內建的「顯示器校色輔助程式」是同一技術路線：測量真實輸出、建立灰階對應，只修正灰階與色溫偏差，不做任何畫質增強。",
+      q4: "校色時為什麼螢幕會變暗、變黑？",
+      a4: "測量灰階需要純黑、純灰等標準畫面，螢幕短暫變暗是正常過程。校色結束後亮度會漸變恢復到你原本的設定。",
+      q5: "開了夜覽模式有影響嗎？",
+      a5: "有。夜覽會整體偏暖，導致測量結果偏色。軟體會偵測到夜覽並彈窗提示你先關閉；請關閉後再校色。",
+      q6: "會修改我的照片或檔案嗎？",
+      a6: "不會。本工具只產生螢幕的色彩描述檔（ICC），不讀取、不修改任何照片、文件或系統檔案。校色紀錄保存在你的 Mac 本機。",
+      q7: "怎麼還原到校色前的狀態？",
+      a7: "打開「顯示器校色」，點一下「一鍵還原」即可。也可以在「系統設定 → 顯示器 → 色彩描述檔」中選擇你原本的描述檔。",
+      q8: "支援哪些系統？",
+      a8: "Mac 端要求 macOS 14 或更高版本、Apple Silicon 晶片；iPhone 端要求 iPhone 11 或更新機型、iOS 17 或更高版本。Mac 與 iPhone 需在同一網路。",
+      q9: "校色會不會損壞顯示器？",
+      a9: "不會。軟體只寫入系統的色彩描述檔，不向顯示器寫入任何硬體資料，不對螢幕做任何實體操作。",
+      ct_title: "聯繫我們",
+      ct_lead: "遇到問題或有建議？發郵件告訴我們，通常 1–2 個工作天內回覆。",
+      ct_btn: "傳送郵件",
+      ft_privacy: "隱私政策", ft_tech: "相關技術", ft_copyright: "© 2026 顯示器校色 · 保留所有權利",
+      langLabel: "語言", docTitle: "幫助與支援 · 顯示器校色"
+    }
+  };
+
+  var TITLES = { "zh-Hans": "帮助与支持 · 显示器校色", "en": "Help & Support · ScreenCal", "zh-Hant": "幫助與支援 · 顯示器校色" };
+
+  function detectLang() {
+    var saved = null;
+    try { saved = localStorage.getItem("screencal.lang"); } catch (e) {}
+    if (saved && I18N[saved]) return saved;
+    var nav = (navigator.language || "zh-Hans").toLowerCase();
+    if (nav.indexOf("zh") === 0) {
+      if (nav.indexOf("hant") > -1 || nav.indexOf("tw") > -1 || nav.indexOf("hk") > -1 || nav.indexOf("mo") > -1) return "zh-Hant";
+      return "zh-Hans";
+    }
+    if (nav.indexOf("en") === 0) return "en";
+    return "zh-Hans";
+  }
+
+  function applyLang(lang) {
+    var dict = I18N[lang];
+    document.documentElement.lang = lang === "zh-Hant" ? "zh-Hant" : lang === "en" ? "en" : "zh-Hans";
+    document.title = TITLES[lang];
+    var els = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < els.length; i++) {
+      var key = els[i].getAttribute("data-i18n");
+      if (dict[key] !== undefined) els[i].textContent = dict[key];
+    }
+    var htmlEls = document.querySelectorAll("[data-i18n-html]");
+    for (var j = 0; j < htmlEls.length; j++) {
+      var k2 = htmlEls[j].getAttribute("data-i18n-html");
+      if (dict[k2] !== undefined) htmlEls[j].innerHTML = dict[k2] + '<span class="icon"></span>';
+    }
+    var btns = document.querySelectorAll(".lang button");
+    for (var b = 0; b < btns.length; b++) {
+      btns[b].classList.toggle("active", btns[b].getAttribute("data-lang") === lang);
+    }
+    try { localStorage.setItem("screencal.lang", lang); } catch (e) {}
+  }
+
+  var langBtns = document.querySelectorAll(".lang button");
+  for (var x = 0; x < langBtns.length; x++) {
+    langBtns[x].addEventListener("click", function () {
+      applyLang(this.getAttribute("data-lang"));
+    });
+  }
+  applyLang(detectLang());
+})();
+</script>
 
 </body>
 </html>
